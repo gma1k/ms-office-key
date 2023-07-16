@@ -79,15 +79,13 @@ function Get-MSOfficeProductKey {
                 }
 
                 try {
-                    # Use a try-catch block to handle any errors when accessing a hive that does not exist on the remote computer
-                    # For example, HKU may not exist on some computers
-                    # In that case, skip the hive and continue with the next one
+                    
                     $subkeys1 = $wmi.EnumKey($hiveValue,$path)
                     foreach ($subkey1 in $subkeys1.snames) {
-                        # Get the product name and the product key from the values under the subkey
+                        
                         $productName = $wmi.GetStringValue($hiveValue,"$path\$subkey1","ProductName")
                         $productKey = $wmi.GetBinaryValue($hiveValue,"$path\$subkey1","DigitalProductId")
-                        # If both values are not null or empty, decode the product key and create an output object
+                        
                         if ($productName.ReturnValue -eq 0 -and $productKey.ReturnValue -eq 0) {
                             $decodedKey = Decode-Key $productKey.uValue
                             $product += [PSCustomObject]@{
