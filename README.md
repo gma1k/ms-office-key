@@ -4,3 +4,6 @@ Find office key
 - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 - Run the script: 
 - Import-Module C:\Users\ghass\Documents\key.ps1; Get-MSOfficeProductKey
+
+
+![image](https://github.com/gma1k/ms-office-key/assets/138721734/1399f580-845a-4f49-aaed-b0019cda8018)
