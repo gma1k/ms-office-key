@@ -102,16 +102,16 @@ function Get-MSOfficeProductKey {
 
             try {
                 $wmi = [WMIClass]"\\$computer\root\default:stdRegProv"
-                Write-Verbose "Connected to registry on ${computer}" -Verbose:$Verbose # Enclose the variable in curly braces
+                Write-Verbose "Connected to registry on ${computer}" -Verbose:$Verbose
             }
             catch {
-                Write-Error "Failed to connect to registry on ${computer}: $_" # Enclose the variable in curly braces
+                Write-Error "Failed to connect to registry on ${computer}: $_"
                 continue
             }
 
             foreach ($hive in $hives) {
 
-                Write-Debug "Searching for Office keys on ${computer} in ${hive}\$path" -Debug:$Debug # Enclose the variables in curly braces
+                Write-Debug "Searching for Office keys on ${computer} in ${hive}\$path" -Debug:$Debug
 
                 switch ($hive) {
                     "HKCR" {$hiveValue = 2147483648}
@@ -151,7 +151,7 @@ function Get-MSOfficeProductKey {
                     }
                 }
                 catch {
-                    Write-Warning "Failed to access hive ${hive} on computer ${computer}: $_" # Enclose the variables in curly braces
+                    Write-Warning "Failed to access hive ${hive} on computer ${computer}: $_"
                     continue
                 }
             }
