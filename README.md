@@ -22,11 +22,11 @@ A repository to find and decode office key.
 - **Finding & Decoding**
 
 ## Usage
+- Run Powershell as administrator
 
 ```
-- Usage: Run Powershell as administrator
-- Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-- Import-Module C:\Users\ $USER\Documents\FindDecodeMSOfficekey.ps1; Get-MSOfficeProductKey
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+Import-Module C:\Users\ $USER\Documents\FindDecodeMSOfficekey.ps1; Get-MSOfficeProductKey
 
 ```
 
